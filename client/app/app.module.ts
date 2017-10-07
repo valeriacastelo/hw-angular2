@@ -9,10 +9,12 @@ import {AppComponent} from "./app.component";
 import {HttpModule} from "@angular/http";
 import 'rxjs/add/operator/map';
 import {PainelModule} from "./painel/painel.module";
+import {CadastroComponent} from "./cadastro/cadastro.component";
+import {ListagemComponent} from "./listagem/listagem.component";
 
 @NgModule({
     imports: [BrowserModule, FotoModule, HttpModule, PainelModule],
-    declarations: [AppComponent],
+    declarations: [AppComponent, CadastroComponent, ListagemComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
