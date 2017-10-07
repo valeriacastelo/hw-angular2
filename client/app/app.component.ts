@@ -2,11 +2,23 @@
  * Created by Valeria on 25/07/2017.
  */
 
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {Http} from "@angular/http";
 
 @Component({
+    moduleId: module.id,
     selector: 'app',
-    templateUrl: './app/app.component.html'
+    templateUrl: './app.component.html'
 })
-export class AppComponent {} 
+export class AppComponent {
+    fotos: Object[] = [];
+
+    constructor(http: Http) {
+
+        http.get('v1/fotos')
+            .map(res => res.json())
+            .subscribe(fotos => this.fotos = fotos,
+                       erro => console.log(erro));
+    }
+}
 
